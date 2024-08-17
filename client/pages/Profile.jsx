@@ -84,7 +84,9 @@ export default function Profile() {
         </ul>
         <button className="btn draw-border">
           {" "}
-          <Link to="/createpostform">Create Posts</Link>
+          <Link to={`/createpostform/${userProfile.username}`}>
+            Create Posts
+          </Link>
         </button>
         <button className="btn draw-border">
           {" "}

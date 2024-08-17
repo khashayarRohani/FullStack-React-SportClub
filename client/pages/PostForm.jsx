@@ -1,5 +1,5 @@
-import { useState } from "react";
-
+import { useState, useEffect, useRef } from "react";
+import { useParams } from "react-router-dom";
 export default function PostForm(props) {
   const [selectedClub, setSelectedClub] = useState(""); // Initialize with an empty string
   const [formData, setFormData] = useState({
@@ -8,11 +8,14 @@ export default function PostForm(props) {
     content: "",
     content_picture_url: "",
   });
-
+  const fileInputRef = useRef(null);
+  const { sUsername } = useParams();
   const handleSelectChange = (event) => {
     setSelectedClub(event.target.value); // Update the state with the selected value
   };
-
+  useEffect(() => {
+    setFormData((prevData) => ({ ...prevData, username: sUsername }));
+  }, [sUsername]); // here i use useEffect because the normal way which is in line 90 did not work
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value }); // Update form data state
@@ -85,14 +88,16 @@ export default function PostForm(props) {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    // setFormData({ ...formData, username: sUsername });
+    console.log("post user name is now updated to:");
+    console.log(formData.username);
     // Get user ID based on the username
     const response = await fetch("http://localhost:3000/getuserbyusername", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username: formData.username }), // Use formData.username
+      body: JSON.stringify({ username: sUsername }), // Use formData.username
     });
 
     const userResponse = await response.json();
@@ -123,6 +128,14 @@ export default function PostForm(props) {
       console.log("User does not exist");
       // Handle user not found (e.g., show error message)
     }
+    setFormData({
+      username: sUsername,
+      title: "",
+      content: "",
+      content_picture_url: "",
+    });
+    fileInputRef.current.value = null;
+    setSelectedClub("");
   };
 
   return (
@@ -137,8 +150,9 @@ export default function PostForm(props) {
           placeholder="username"
           title="Enter Username"
           required
-          value={formData.username} // Bind form data to input value
+          value={sUsername} // Bind form data to input value
           onChange={handleChange} // Update form data on change
+          disabled
         />
 
         <label htmlFor="title">Post Title:</label>
@@ -181,6 +195,7 @@ export default function PostForm(props) {
           title="Upload content image"
           accept="image/*"
           onChange={handleImageChange}
+          ref={fileInputRef}
         />
 
         <div className="wrap">

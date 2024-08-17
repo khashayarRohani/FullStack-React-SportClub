@@ -27,6 +27,9 @@ export default function About() {
     console.log(isUser);
     if (isUser.exists) {
       navigate(`/profile/${userName.username}`);
+    } else {
+      alert("User Does not exist , Register First");
+      setUsername({ ...userName, username: "" });
     }
   }
   return (
@@ -38,6 +41,7 @@ export default function About() {
           placeholder="username(Case Sensitive)"
           title="Enter a UserName"
           onChange={handleAboutChange}
+          value={userName.username}
         />
         <button className="button">Check me</button>
       </form>
