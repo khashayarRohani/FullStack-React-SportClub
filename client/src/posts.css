@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   justify-content: center;
   max-width: 1200px;
-  margin-block: 2rem;
+  margin-top: 2rem;
   gap: 2rem;
 }
 
@@ -114,4 +114,110 @@
   background-color: #cb2d3e;
   border: 5px solid #cb2d3e;
   color: #ece9e6;
+}
+@media (min-width: 900px) {
+  .containerr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .imgs {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  .imgUser {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+  }
+  .Card {
+    display: flex;
+    flex-direction: column;
+    width: clamp(20rem, calc(20rem + 2vw), 22rem);
+    overflow: hidden;
+    box-shadow: 0 0.1rem 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 1em;
+    background: #ece9e6;
+    background: linear-gradient(to right, #ffffff, #ece9e6);
+  }
+
+  .card__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    align-self: flex-start;
+    padding: 0.25em 0.75em;
+    border-radius: 1em;
+    font-size: 0.75rem;
+  }
+
+  .tag + .tag {
+    margin-left: 0.5em;
+  }
+
+  .tag-blue {
+    background: #56ccf2;
+    background: linear-gradient(to bottom, #2f80ed, #56ccf2);
+    color: #fafafa;
+  }
+
+  .tag-brown {
+    background: #d1913c;
+    background: linear-gradient(to bottom, #ffd194, #d1913c);
+    color: #fafafa;
+  }
+
+  .tag-red {
+    background: #cb2d3e;
+    background: linear-gradient(to bottom, #ef473a, #cb2d3e);
+    color: #fafafa;
+  }
+
+  .card__body h4 {
+    font-size: 1.5rem;
+    text-transform: capitalize;
+  }
+
+  .card__footer {
+    display: flex;
+    padding: 1rem;
+    margin-top: auto;
+  }
+
+  .user {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+  }
+
+  .user__images {
+    border-radius: 50%;
+  }
+
+  .user__info > small {
+    color: #666;
+  }
+
+  /* like btn*/
+  .but {
+    border-radius: 10%;
+    height: 28px;
+    border: solid 2px #567af2;
+    text-align: center;
+    font-weight: 900;
+  }
+  .but:hover {
+    background-color: #cb2d3e;
+    border: 5px solid #cb2d3e;
+    color: #ece9e6;
+  }
 }

@@ -19,19 +19,20 @@ export default function Header(props) {
       <nav className="navbar">
         <Link to="/home">Home</Link>
         <Link to="/">Register</Link>
-
-        <select value={selectedClub} onChange={handleSelectChange}>
-          <option value="" disabled>
-            Select a club
-          </option>
-          {props.categories.map((category) => {
-            return (
-              <option key={category.id} value={category.name}>
-                {category.name}
-              </option>
-            );
-          })}
-        </select>
+        <div className="box">
+          <select value={selectedClub} onChange={handleSelectChange}>
+            <option value="" disabled>
+              Select a club
+            </option>
+            {props.categories.map((category) => {
+              return (
+                <option key={category.id} value={category.name}>
+                  {category.name}
+                </option>
+              );
+            })}
+          </select>
+        </div>
         <Link to="/about">Profile</Link>
       </nav>
     </div>

@@ -48,7 +48,7 @@ app.get("/userposts/:user_id", async (req, res) => {
 app.get("/footballposts", async (req, res) => {
   const footballId = 2;
   const data = await db.query(
-    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1`,
+    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1 ORDER By posts.id`,
     [footballId]
   );
   res.json(data.rows);
@@ -56,7 +56,7 @@ app.get("/footballposts", async (req, res) => {
 app.get("/boxposts", async (req, res) => {
   const footballId = 1;
   const data = await db.query(
-    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1`,
+    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1 ORDER By posts.id`,
     [footballId]
   );
   res.json(data.rows);
@@ -64,7 +64,7 @@ app.get("/boxposts", async (req, res) => {
 app.get("/basketballposts", async (req, res) => {
   const footballId = 3;
   const data = await db.query(
-    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1`,
+    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1 ORDER By posts.id`,
     [footballId]
   );
   res.json(data.rows);
@@ -72,7 +72,7 @@ app.get("/basketballposts", async (req, res) => {
 app.get("/baseballposts", async (req, res) => {
   const footballId = 4;
   const data = await db.query(
-    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1`,
+    `SELECT posts.*, users.username ,users.profile_picture_url FROM posts JOIN users ON posts.user_id = users.id where posts.category_id =$1 ORDER By posts.id`,
     [footballId]
   );
   res.json(data.rows);

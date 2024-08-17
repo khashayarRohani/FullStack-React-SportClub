@@ -165,16 +165,28 @@ button {
     opacity: 0;
   }
 }
-.registerForm {
+.registerFormm {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 5px;
   margin-left: 14%;
   margin-top: 1rem;
-  width: 100%;
 }
 
 .buttonPosition {
   margin-left: 40%;
+}
+@media (min-width: 900px) {
+  .registerFormm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 5px;
+    margin-left: 1%;
+    margin-top: 1rem;
+  }
+  .registerFormm input {
+    height: 30px;
+  }
 }

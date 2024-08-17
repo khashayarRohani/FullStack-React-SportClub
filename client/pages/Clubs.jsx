@@ -5,7 +5,7 @@ export default function Clubs() {
   console.log(clubsName);
 
   return (
-    <div>
+    <div className="clubMarg">
       <p>Selected Club: {clubsName}</p>
 
       <Outlet />

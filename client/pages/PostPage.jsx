@@ -152,7 +152,7 @@ export default function PostPage() {
         </button>
 
         {isShowCheckUser && (
-          <form className="registerForm" onSubmit={handleCheckSubmit}>
+          <form className="registerFormm" onSubmit={handleCheckSubmit}>
             <label htmlFor="username">enter your username</label>
             <input
               name="username"
@@ -164,7 +164,7 @@ export default function PostPage() {
           </form>
         )}
         {isRegister == true && (
-          <form className="registerForm" onSubmit={handleSubmit}>
+          <form className="registerFormm" onSubmit={handleSubmit}>
             <label htmlFor="content">Leave a Comment</label>
             <textarea
               name="content"
