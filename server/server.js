@@ -169,5 +169,11 @@ app.post("/createpost", async (req, res) => {
   const result = await db.query(query, values);
   res.json(result.rows[0]);
 });
+app.delete("/deletepost/", async (req, res) => {
+  const { id } = req.query;
+  console.log(id);
+  await db.query(`DELETE FROM posts WHERE id = $1`, [id]);
+  res.json(true);
+});
 
 app.listen(Port, () => console.log(`you are listining to ${Port}`));

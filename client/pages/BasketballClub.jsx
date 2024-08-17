@@ -49,7 +49,16 @@ export default function FootballClub() {
     }
     getFootballPosts();
   }
+  async function handleDelete(postId) {
+    const response = await fetch(
+      `http://localhost:3000/deletepost/?id=${postId}`,
+      {
+        method: "Delete",
+      }
+    );
 
+    getFootballPosts();
+  }
   return (
     <div className="body">
       <div className="containerr">
@@ -70,7 +79,9 @@ export default function FootballClub() {
                 <button className="but" onClick={() => handleLike(post.id)}>
                   Like
                 </button>
-
+                <button className="but" onClick={() => handleDelete(post.id)}>
+                  Delete
+                </button>
                 <p>{post.content}</p>
               </div>
               <div className="card__footer">
