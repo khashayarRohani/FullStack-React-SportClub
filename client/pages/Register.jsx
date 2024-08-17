@@ -91,13 +91,16 @@ export default function Register() {
     console.log("Form data before submit:", form);
 
     try {
-      const response = await fetch("http://localhost:3000/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      });
+      const response = await fetch(
+        "https://fullstack-react-sportclub.onrender.com/user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok.");

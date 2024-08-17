@@ -10,13 +10,16 @@ export default function About() {
   }
   async function handleProfileSubmit(event) {
     event.preventDefault();
-    const response = await fetch("http://localhost:3000/getuserbyusername", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userName),
-    });
+    const response = await fetch(
+      "https://fullstack-react-sportclub.onrender.com/getuserbyusername",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userName),
+      }
+    );
 
     const isUser = await response.json();
 

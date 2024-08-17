@@ -25,7 +25,9 @@ export default function App() {
     getCategories();
   }, []);
   async function getCategories() {
-    const response = await fetch("http://localhost:3000/categories");
+    const response = await fetch(
+      "https://fullstack-react-sportclub.onrender.com/categories"
+    );
 
     const data = await response.json();
     console.log(data);

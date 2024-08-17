@@ -16,7 +16,9 @@ export default function FootballClub() {
     },
   ]);
   async function getFootballPosts() {
-    const response = await fetch("http://localhost:3000/baseballposts");
+    const response = await fetch(
+      "https://fullstack-react-sportclub.onrender.com/baseballposts"
+    );
 
     const footPosts = await response.json();
     console.log(" here in football club :");
@@ -28,12 +30,15 @@ export default function FootballClub() {
     getFootballPosts();
   }, []);
   async function handleLike(postId) {
-    const response = await fetch(`http://localhost:3000/like/${postId}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://fullstack-react-sportclub.onrender.com/like/${postId}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
@@ -51,7 +56,7 @@ export default function FootballClub() {
   }
   async function handleDelete(postId) {
     const response = await fetch(
-      `http://localhost:3000/deletepost/?id=${postId}`,
+      `https://fullstack-react-sportclub.onrender.com/deletepost/?id=${postId}`,
       {
         method: "Delete",
       }

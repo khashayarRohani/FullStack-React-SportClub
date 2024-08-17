@@ -23,7 +23,9 @@ export default function Profile() {
   ]);
 
   async function getUser() {
-    const response = await fetch(`http://localhost:3000/user/${username}`);
+    const response = await fetch(
+      `https://fullstack-react-sportclub.onrender.com/user/${username}`
+    );
     const user = await response.json();
     console.log("profile:");
     console.log(user);
@@ -31,7 +33,7 @@ export default function Profile() {
   }
   async function getUserPosts() {
     const response = await fetch(
-      `http://localhost:3000/userposts/${userProfile.id}`
+      `https://fullstack-react-sportclub.onrender.com/userposts/${userProfile.id}`
     );
     const userPosts = await response.json();
     console.log("userPosts:");
@@ -87,10 +89,6 @@ export default function Profile() {
           <Link to={`/createpostform/${userProfile.username}`}>
             Create Posts
           </Link>
-        </button>
-        <button className="btn draw-border">
-          {" "}
-          <Link>Comments</Link>
         </button>
       </div>
     </div>

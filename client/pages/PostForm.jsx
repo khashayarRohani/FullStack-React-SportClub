@@ -92,13 +92,16 @@ export default function PostForm(props) {
     console.log("post user name is now updated to:");
     console.log(formData.username);
     // Get user ID based on the username
-    const response = await fetch("http://localhost:3000/getuserbyusername", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ username: sUsername }), // Use formData.username
-    });
+    const response = await fetch(
+      "https://fullstack-react-sportclub.onrender.com/getuserbyusername",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username: sUsername }), // Use formData.username
+      }
+    );
 
     const userResponse = await response.json();
 
@@ -107,19 +110,22 @@ export default function PostForm(props) {
       const categoryId = selectedClub;
 
       // Submit the post data
-      const postResponse = await fetch("http://localhost:3000/createpost", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          user_id: userId,
-          category_id: categoryId,
-          title: formData.title,
-          content: formData.content,
-          content_picture_url: formData.content_picture_url,
-        }),
-      });
+      const postResponse = await fetch(
+        "https://fullstack-react-sportclub.onrender.com/createpost",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            user_id: userId,
+            category_id: categoryId,
+            title: formData.title,
+            content: formData.content,
+            content_picture_url: formData.content_picture_url,
+          }),
+        }
+      );
 
       const postResult = await postResponse.json();
       console.log("Post created successfully:", postResult);
