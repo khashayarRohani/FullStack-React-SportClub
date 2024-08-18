@@ -20,7 +20,7 @@ Using Restful APIs(get,delete,post,put)
 using relational database and all kinds of join queries
 
 
-the thing that i am proud of in this code is saving images which user choose from his/her system transmits to string and it going to be saved as string in database, it took almost a day to learn , however I still have some issue with logic of the code, but it worked perfectly.
+The thing that I am proud of in this code, is saving images into database as string .user chooses the image from his system, it transmits to string and then it's going to be saved as string in database.
 
 other thing that took so much time choosing how to create such a app, as first step i had to declare that what I wanna use and show, so I start to design database and make plan how many tables I need and how tables should be in touch to each other
 
